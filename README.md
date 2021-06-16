@@ -1,20 +1,20 @@
-# Lab 2 - Cloud Compliance with Azure
+# Lab 2 - Cloud Compliance with AWS - WIP doc
 
 ## Backstory - "Guardrails not gates"
 
-Deloitte Cloud Services is tasked with building a common cloud service platform for a federated set of Deloitte firms (e.g. US, Canada, SE Asia). Rather than imposing a set of gates or prescriptive tools that everyone must use, they want to enable teams to use the tools they want while providing guard rails behind the scenes to ensure Deloitte remains secure and compliant – all while expanding from AWS to Azure, GCP, AliCloud etc. Consequently, they have developed an event-driven approach to cloud compliance. 
+Say a customer is tasked with building a common cloud service platform for a federated set of their firms (based in UK, Canada, America). Rather than imposing a set of gates or prescriptive tools that everyone must use, they want to enable teams to use the tools they want while providing guard rails behind the scenes to ensure they remain secure and compliant – all while expanding from Azure to AWS, GCP, AliCloud etc.
 
-Relay can be used to listen to events coming from a cloud provider (e.g. new virtual machine in Azure) and automatically respond to events (e.g. stopping that VM that don't conform to the governance policy). In order to simplify the scenario, we're going to use a [schedule cron trigger](https://relay.sh/docs/using-workflows/using-triggers/#schedule-triggers) instead of the [Azure Event Grid](https://relay.sh/integrations/azure-eventgrid/).
+Relay can be used to listen to events coming from a cloud provider (e.g. new ec2 instance in AWS) and automatically respond to events (e.g. stopping the ec2 instance that doesn't conform to the governance policy). In order to simplify the scenario, we're going to use a [schedule cron trigger](https://relay.sh/docs/using-workflows/using-triggers/#schedule-triggers) instead of the [AWS Event Bridge](https://relay.sh/integrations/aws-eventbridge/).
 
-## Prerequisites
+## Prerequisites (might need to be changed)
 
 Before you run this workflow, you will need the following:
 - User account on Relay SE account
-- Azure account and Service Principal
+- AWS account
 
 ## Configure the workflow  
 
-Follow these steps to configure the workflow. Doing this will enable Relay to connect to your Azure account.
+Follow these steps to configure the workflow. Doing this will enable Relay to connect to your AWS account.
 
 You may see a warning that you are missing a required connection. This means you will need to add your Azure credentials as a Relay connection.
 
