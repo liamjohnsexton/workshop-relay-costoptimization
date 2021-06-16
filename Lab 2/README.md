@@ -32,23 +32,10 @@ You may see a warning that you are missing a required connection. This means you
 - Fill out the form:  
 
    - **Name** - You can’t change this with the form. The name is supplied by the YAML. If you wanted to change it you would need to do so in the Code tab.
-   - **Subscription ID** - Enter your Azure Subscription ID
-   - **Client ID** - Enter your Azure Client ID associated with the service principal  
-   - **Tenant ID** - Enter your Azure Tenant ID associated with the service principal
-   - **Secret** - Enter your Azure Secret associated with the service principal  
+   - **Access Key ID** - Enter your AWS Account Access Key ID
+   - **Secret Access Key** - Enter your AWS Account Secret Access Key 
 
 -  Click **Save** 
-
-## Create an example VM to terminate 
-1. Navigate to the [Azure portal](https://portal.azure.com) 
-2. Search for "Virtual Machines" 
-
-> **TIP** Do not select "Virtual Machines" (Classic)
-
-3. Click Add and select "+ Virtual Machine" 
-4. Select the Subscription and create new resource group with your name "your-name" 
-5. Configure the Virtual Machine details 
-6. Create the VM 
 
 ## Run the workflow manually with `dryRun` turned on
 
@@ -71,8 +58,8 @@ Navigate back to the Relay workflow. Follow these steps to run this workflow.
 > **WARNING!** Be careful setting `dryRun` to `false`. Though the workflow comes with an approval step, once approved the resources will be terminated. Please use caution.
 
 ### Outcome
-- By clicking on the `list-azure-vms` step, you should see the VM that you created before. 
-- By clicking on the `filter-vms` step, you should see the VM that you created before that has been identified as a VM that doesn't have any tags. 
+- By clicking on the `describe-instances` step, you should see ec2 instances active.
+- By clicking on the `filter-instances` step, you should see an ec2 instance that is untagged. 
 
 ## Run the workflow manually with `dryRun` turned off 
 
@@ -80,7 +67,7 @@ Now, run the workflow again. This time specify the `dryRun` parameter to be turn
 
 When the `Approval` step is reached, select Yes to move to the Delete step. 
 ### Outcome
-- After the workflow is completed, check the Azure portal to see that VM has been deleted.
+- After the workflow is completed, check the (AWS management console?) to see that the ec2 instance has been deleted.
 
 ## Run the workflow on a schedule  
 Once we've confirmed that this workflow works, follow these steps to run this workflow on a schedule:  
