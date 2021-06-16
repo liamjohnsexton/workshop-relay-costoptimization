@@ -58,8 +58,8 @@ Navigate back to the Relay workflow. Follow these steps to run this workflow.
 > **WARNING!** Be careful setting `dryRun` to `false`. Though the workflow comes with an approval step, once approved the resources will be terminated. Please use caution.
 
 ### Outcome
-- By clicking on the `list-azure-vms` step, you should see the VM that you created before. 
-- By clicking on the `filter-vms` step, you should see the VM that you created before that has been identified as a VM that doesn't have any tags. 
+- By clicking on the `describe-instances` step, you should see ec2 instances active.
+- By clicking on the `filter-instances` step, you should see an ec2 instance that is untagged. 
 
 ## Run the workflow manually with `dryRun` turned off 
 
@@ -67,7 +67,7 @@ Now, run the workflow again. This time specify the `dryRun` parameter to be turn
 
 When the `Approval` step is reached, select Yes to move to the Delete step. 
 ### Outcome
-- After the workflow is completed, check the Azure portal to see that VM has been deleted.
+- After the workflow is completed, check the (AWS management console?) to see that the ec2 instance has been deleted.
 
 ## Run the workflow on a schedule  
 Once we've confirmed that this workflow works, follow these steps to run this workflow on a schedule:  
