@@ -2,7 +2,7 @@
 
 ## Backstory - "Guardrails not gates"
 
-Say a customer is tasked with building a common cloud service platform for a federated set of their firms (based in UK, Canada, America). Rather than imposing a set of gates or prescriptive tools that everyone must use, they want to enable teams to use the tools they want while providing guard rails behind the scenes to ensure they remain secure and compliant – all while expanding from Azure to AWS, GCP, AliCloud etc.
+Say a customer is tasked with building a common cloud service platform for a federated set of their firms (based in UK, Canada, America). Rather than imposing a set of gates or prescriptive tools that everyone must use, they want to enable teams to use the tools they want while providing guard rails behind the scenes to ensure they remain secure and compliant – all while expanding from AWS to Azure, GCP, AliCloud etc.
 
 Relay can be used to listen to events coming from a cloud provider (e.g. new ec2 instance in AWS) and automatically respond to events (e.g. stopping the ec2 instance that doesn't conform to the governance policy). In order to simplify the scenario, we're going to use a [schedule cron trigger](https://relay.sh/docs/using-workflows/using-triggers/#schedule-triggers) instead of the [AWS Event Bridge](https://relay.sh/integrations/aws-eventbridge/).
 
