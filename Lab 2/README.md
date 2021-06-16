@@ -25,7 +25,7 @@ You may see a warning that you are missing a required connection. This means you
 
 ![Click settings from side nav](/images/settings-sidenav.png)
 
-- Find the Connection named `my-azure-account` and click the plus sign **(+)**. 
+- Find the Connection named `my-aws-account` and click the plus sign **(+)**. 
 
 ![Guide connections](/images/guide-connections.png)
 
