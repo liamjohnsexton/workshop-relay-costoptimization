@@ -1,0 +1,10 @@
+parameters:
+  message:
+    description: "The message to output from this step."
+steps:
+- name: hello-world
+  image: relaysh/core
+  spec:
+    message: !Parameter message
+  input:
+  - echo "Hello world. Your message was $(ni get -p {.message})"
