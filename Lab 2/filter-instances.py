@@ -16,8 +16,9 @@ relay = Interface()
 
 to_stop = []
 to_keep = [studentGroup]
+print(studentGroup)
 
-instances = filter(lambda i: i['State']['Name'] == 'running' and i['Placement']['GroupName'] == studentGroup, relay.get(D.instances))
+instances = filter(lambda i: i['State']['Name'] == 'running', relay.get(D.instances))
 for instance in instances:
     try:
         if instance['Tags'] is None: 
