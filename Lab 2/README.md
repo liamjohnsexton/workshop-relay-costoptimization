@@ -32,8 +32,8 @@ You may see a warning that you are missing a required connection. This means you
 - Fill out the form:  
 
    - **Name** - You can’t change this with the form. The name is supplied by the YAML. If you wanted to change it you would need to do so in the Code tab.
-   - **Access Key ID** - Enter your AWS Account Access Key ID
-   - **Secret Access Key** - Enter your AWS Account Secret Access Key 
+   - **Access Key ID** - Enter your AWS Account Access Key ID.
+   - **Secret Access Key** - Enter your AWS Account Secret Access Key.
 
 -  Click **Save** 
 
@@ -53,7 +53,7 @@ Navigate back to the Relay workflow. Follow these steps to run this workflow.
        - `true` if you dont want to actually delete the resources. Use this to test the workflow and ensure it is behaving as expected.
        - `false` if you want the resources to be immediately deleted. 
 
-    - **resourceGroup** - Specify the name of the resource group you created above.  
+    - **awsRegion** - Specify the name of the AWS region your ec2 instances are in. (need to determine what this region will be, let's say us-east-1 for now)
 
 > **WARNING!** Be careful setting `dryRun` to `false`. Though the workflow comes with an approval step, once approved the resources will be terminated. Please use caution.
 
@@ -63,9 +63,9 @@ Navigate back to the Relay workflow. Follow these steps to run this workflow.
 
 ## Run the workflow manually with `dryRun` turned off 
 
-Now, run the workflow again. This time specify the `dryRun` parameter to be turned to `false`. Configure the `resourceGroup` with the same name you specified before. 
+Now, run the workflow again. This time specify the `dryRun` parameter to be turned to `false`. Configure the `awsRegion` with the same region you specified before.
 
-When the `Approval` step is reached, select Yes to move to the Delete step. 
+When the `Approval` step is reached, select Yes to move to the 'Stop' step. 
 ### Outcome
 - After the workflow is completed, check the (AWS management console?) to see that the ec2 instance has been deleted.
 
@@ -86,19 +86,19 @@ Once we've confirmed that this workflow works, follow these steps to run this wo
 #   binding:
 #     parameters:
 #       dryRun: true
-#       resourceGroup: your-name
+#       awsRegion: your-aws-region
 ```
 
 -  Configure the `schedule` trigger:  
    - Supply the run interval in [cron format](https://crontab.guru/).  
    - Configure the following parameter bindings:  
       - Specify whether `dryRun` should be set to `true` or `false`.  
-      - Specify the `resourceGroup` to look for VMs under
+      - Specify the `awsRegion` to look for ec2 instances under.
 ```yaml
   binding:
     parameters:
       dryRun: true
-      resourceGroup: your-name
+      awsRegion: your-aws-region
 ```
 
 - Click **Save changes**
