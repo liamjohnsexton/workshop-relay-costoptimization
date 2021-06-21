@@ -16,13 +16,13 @@ relay = Interface()
 
 to_stop = []
 to_keep = []
-studentGroup_test = relay.get(D.studentGroup)
+#studentGroup_test = relay.get(D.studentGroup)
 #print(studentGroup_test)
 
 
 instances = filter(lambda i: i['State']['Name'] == 'running', relay.get(D.instances))
 
-instances = filter(lambda i: i['Placement']['GroupName'] == studentGroup_test, instances)
+instances = filter(lambda i: i['Placement']['GroupName'] == relay.get(D.studentGroup), instances)
 
 for instance in instances:
     try:
