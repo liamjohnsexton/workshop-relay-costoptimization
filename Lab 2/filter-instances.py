@@ -15,8 +15,7 @@ from relay_sdk import Interface, Dynamic as D
 relay = Interface()
 
 to_stop = []
-to_keep = [studentGroup]
-print(studentGroup)
+to_keep = []
 
 instances = filter(lambda i: i['State']['Name'] == 'running', relay.get(D.instances))
 for instance in instances:
