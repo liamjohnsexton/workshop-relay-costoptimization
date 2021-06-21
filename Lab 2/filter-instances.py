@@ -16,9 +16,6 @@ relay = Interface()
 
 to_stop = []
 to_keep = []
-#studentGroup_test = relay.get(D.studentGroup)
-#print(studentGroup_test)
-
 
 instances = filter(lambda i: i['State']['Name'] == 'running', relay.get(D.instances))
 
