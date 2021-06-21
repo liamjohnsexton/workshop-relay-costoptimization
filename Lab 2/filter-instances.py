@@ -13,7 +13,6 @@
 from relay_sdk import Interface, Dynamic as D
 
 relay = Interface()
-print(relay)
 
 to_stop = []
 to_keep = []
